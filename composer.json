@@ -1,0 +1,20 @@
+{
+    "name": "marketo/silverstripe-global-error-page",
+    "description": "Setup predfined error pages",
+    "type": "silverstripe-module",
+    "require": {
+        "silverstripe/cms": "3.*",
+        "composer/installers": "*"
+    },
+    "support": {
+        "issues": "https://github.com/Marketo/SilverStripe-global-Error-Page/issues"
+    },
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Kirk Mayo",
+            "email": "kirk.mayo@solnet.co.nz"
+        }
+    ],
+    "minimum-stability": "dev"
+}
