@@ -27,7 +27,7 @@ can be a php file wihich it will just output the response from a php file.
 
 ## Composer Installation
 
-  composer require solnet/socialproof
+  composer require marketo/silverstripe-universalerrorpage
 
 ## Config
 
