@@ -1,5 +1,5 @@
 {
-    "name": "marketo/silverstripe-global-error-page",
+    "name": "marketo/silverstripe-universalerrorpage",
     "description": "Setup predfined error pages",
     "type": "silverstripe-module",
     "require": {

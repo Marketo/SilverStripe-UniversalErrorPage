@@ -34,7 +34,7 @@ can be a php file wihich it will just output the response from a php file.
 The module can be modified via a yml file to specify a path or a particular
 file for a certain error code.
 To define a path specify this in a yml config file under `GlobalErrorPage`
-with the name i`GlobalErrorPagePath`
+with the name `GlobalErrorPagePath`
 If no path is defined it defaults to `var/www/error_pages`
 You can also specify a page for a particular error code under `GlobalErrorPage`
 Some sample yml config is below
@@ -48,3 +48,4 @@ GlobalErrorPage:
 ## TODO
 
 Add Tests
+Fix Extension point and test it
