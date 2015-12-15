@@ -40,7 +40,11 @@ GlobalErrorPage:
   404: '/var/www/error_pages/error.php'
 ```
 
+Any existing SilverStripe error pages will need to be removed as well as the
+static html files which are created in assets.
+
 ## TODO
 
 Add Tests
 Fix Extension point and test it
+Add dev task to remove SilverStripe Error pages and static error pages

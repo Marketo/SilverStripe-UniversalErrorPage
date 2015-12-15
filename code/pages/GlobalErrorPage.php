@@ -3,6 +3,13 @@
 class GlobalErrorPage extends ErrorPage {
 
 	private static $description = 'Default to a sinlge error page';
+
+    /**
+     * Stop the static html file being created in assets
+     */
+	public function doPublish() {
+		return true;
+	}
 }
 
 /**
