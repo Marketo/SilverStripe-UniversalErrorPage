@@ -7,9 +7,9 @@
  * Copies a lot from the ErrorPageTest in cms
  */
 
-class  GlobalErrorPageTest extends FunctionalTest {
+class  UniversalErrorPageTest extends FunctionalTest {
 
-    protected static $fixture_file = 'GlobalErrorPageTest.yml';
+    protected static $fixture_file = 'UniversalErrorPageTest.yml';
     
     protected $orig = array();
     
@@ -22,11 +22,11 @@ class  GlobalErrorPageTest extends FunctionalTest {
         $errorPath =  dirname(__FILE__);
         
         Config::inst()->update('Director', 'environment_type', 'live');
-        Config::inst()->update('GlobalErrorPage', 'GlobalErrorPagePath', "$errorPath/");
+        Config::inst()->update('UniversalErrorPage', 'DefaultPath', "$errorPath/");
     }
 
     public function test404ErrorPage() {
-        $page = $this->objFromFixture('GlobalErrorPage', '404');
+        $page = $this->objFromFixture('UniversalErrorPage', '404');
         // ensure that the errorpage exists as a physical file
         $page->publish('Stage', 'Live');
         
@@ -43,7 +43,7 @@ class  GlobalErrorPageTest extends FunctionalTest {
     }
     
     public function testBehaviourOf403() {
-        $page = $this->objFromFixture('GlobalErrorPage', '403');
+        $page = $this->objFromFixture('UniversalErrorPage', '403');
         $page->publish('Stage', 'Live');
         
         $response = $this->get($page->RelativeLink());
@@ -56,7 +56,7 @@ class  GlobalErrorPageTest extends FunctionalTest {
     
     public function testSecurityError() {
         // Generate 404 page
-        $page = $this->objFromFixture('GlobalErrorPage', '404');
+        $page = $this->objFromFixture('UniversalErrorPage', '404');
         $page->publish('Stage', 'Live');
         
         // Test invalid action

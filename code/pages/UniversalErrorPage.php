@@ -1,17 +1,17 @@
 <?php
 
-class GlobalErrorPage extends ErrorPage {
+class UniversalErrorPage extends ErrorPage {
 
     private static $description = 'Use a shared HTML or PHP file on the server to display the error';
 
     public function requireDefaultRecords() {
-        if (Config::inst()->get('GlobalErrorPage', 'ConvertOnDevBuild')) {
+        if (Config::inst()->get('UniversalErrorPage', 'ConvertOnDevBuild')) {
             $ErrorPages = ErrorPage::get()->filter('ClassName','ErrorPage');
             foreach ($ErrorPages as $ErrorPage) {
-                $ErrorPage->ClassName = 'GlobalErrorPage';
+                $ErrorPage->ClassName = 'UniversalErrorPage';
                 $ErrorPage->write();
                 $ErrorPage->doPublish();
-                DB::alteration_message("#$ErrorPage->ID $ErrorPage->Title changed to GlobalErrorPage.", "changed");
+                DB::alteration_message("#$ErrorPage->ID $ErrorPage->Title changed to UniversalErrorPage.", "changed");
             }
         }
     }
@@ -26,21 +26,21 @@ class GlobalErrorPage extends ErrorPage {
 }
 
 /**
- * Controller for ErrorPages.
+ * Controller for UniversalErrorPage.
  *
  * @package cms
  */
-class GlobalErrorPage_Controller extends ErrorPage_Controller {
+class UniversalErrorPage_Controller extends ErrorPage_Controller {
 
     private $defaultErrorPagePath = '/var/www/error_pages/';
 
     public function handleRequest(SS_HTTPRequest $request, DataModel $model = NULL) {
         $body = null;
         $lang = i18n::get_locale();
-        $path = Config::inst()->get('GlobalErrorPage', 'GlobalErrorPagePath');
+        $path = Config::inst()->get('UniversalErrorPage', 'DefaultPath');
         if (!$path) $path = $this->defaultErrorPagePath;
         $errorPages = array(
-            Config::inst()->get('GlobalErrorPage', $this->ErrorCode),
+            Config::inst()->get('UniversalErrorPage', $this->ErrorCode),
             $path . "error-{$this->ErrorCode}-$lang.html",
             $path . "error-{$this->ErrorCode}-$lang.php",
             $path . 'error.html',

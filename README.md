@@ -1,8 +1,8 @@
-# SilverStripe Global Error Page Module
+# SilverStripe Universal Error Page Module
 
 ## Documentation
 
-This module is used to add Global error pages to a site or a collection sites.
+This module is used to add universal error pages to a site or a collection sites.
 You can use it to specify a path of where to find some standard error pages.
 These pages can be plain html which will output the raw html of the file or it
 can be a php file which it will just output the response from a php file.
@@ -19,17 +19,17 @@ can be a php file which it will just output the response from a php file.
 
 The module can be modified via a YAML file to specify a path or a particular
 file for a certain error code.
-To define a path specify this in a YAML config file under `GlobalErrorPage`
-with the name `GlobalErrorPagePath`
+To define a path specify this in a YAML config file under `UniversalErrorPage`
+with the name `DefaultPath`
 If no path is defined it defaults to `/var/www/error_pages/`
-You can also specify a page for a particular error code under `GlobalErrorPage`.
+You can also specify a page for a particular error code under `UniversalErrorPage`.
 
 #### Sample YAML config
 
 ```
-GlobalErrorPage:
+UniversalErrorPage:
   ConvertOnDevBuild: true
-  GlobalErrorPagePath: '/etc/apache2/error/'
+  DefaultPath: '/etc/apache2/error/'
   404: '/etc/apache2/error/error.php'
 ```
 
