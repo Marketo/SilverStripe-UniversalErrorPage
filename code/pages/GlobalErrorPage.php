@@ -2,12 +2,25 @@
 
 class GlobalErrorPage extends ErrorPage {
 
-    private static $description = 'Default to a sinlge error page';
+    private static $description = 'Use a shared HTML or PHP file on the server to display the error';
+
+    public function requireDefaultRecords() {
+        if (Config::inst()->get('GlobalErrorPage', 'ConvertOnDevBuild')) {
+            $ErrorPages = ErrorPage::get()->filter('ClassName','ErrorPage');
+            foreach ($ErrorPages as $ErrorPage) {
+                $ErrorPage->ClassName = 'GlobalErrorPage';
+                $ErrorPage->write();
+                $ErrorPage->doPublish();
+                DB::alteration_message("#$ErrorPage->ID $ErrorPage->Title changed to GlobalErrorPage.", "changed");
+            }
+        }
+    }
 
     /**
      * Stop the static html file being created in assets
+     * TODO: This does not prevent /dev/build from creating them...
      */
-    public function doPublish() {
+    public function writeStaticPage() {
         return true;
     }
 }
@@ -56,10 +69,7 @@ class GlobalErrorPage_Controller extends ErrorPage_Controller {
             return $response;
         }
 
-        $body = parent::handleRequest($request, $model);
-        $this->response->setStatusCode($this->ErrorCode);
-
-        return $this->response;
+        return parent::handleRequest($request, $model);
     }
 }
 

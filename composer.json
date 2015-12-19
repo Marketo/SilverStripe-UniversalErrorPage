@@ -1,19 +1,23 @@
 {
     "name": "marketo/silverstripe-universalerrorpage",
-    "description": "Setup predfined error pages",
+    "description": "Set SilverStripe to use a pre-defined shared HTML or PHP file on the server rather than generating one from the theme/templates.",
     "type": "silverstripe-module",
     "require": {
         "silverstripe/cms": "3.*",
         "composer/installers": "*"
     },
     "support": {
-        "issues": "https://github.com/Marketo/SilverStripe-global-Error-Page/issues"
+        "issues": "https://github.com/Marketo/SilverStripe-UniversalErrorPage/issues"
     },
     "license": "BSD-3-Clause",
     "authors": [
         {
             "name": "Kirk Mayo",
             "email": "kirk.mayo@solnet.co.nz"
+        },
+        {
+            "name": "Nathan J. Brauer",
+            "email": "nathan@marketera.com"
         }
     ],
     "minimum-stability": "dev"
