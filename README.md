@@ -15,11 +15,6 @@ can be a php file which it will just output the response from a php file.
 
     composer require marketo/silverstripe-universalerrorpage
 
-## Maintainer Contacts
-
-- Nathan J. Brauer (nathan@marketo.com)
-- Kirk Mato (kmayo [at] solnet.co.nz)
-
 ## Config
 
 The module can be modified via a YAML file to specify a path or a particular
@@ -40,6 +35,11 @@ GlobalErrorPage:
 
 Any existing SilverStripe error pages will need to be removed as well as the
 static html files which are created in assets.
+
+## Maintainer Contacts
+
+- Nathan J. Brauer (nathan@marketo.com)
+- Kirk Mato (kmayo [at] solnet.co.nz)
 
 ## TODO
 
