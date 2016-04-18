@@ -43,6 +43,8 @@ class UniversalErrorPage_Controller extends ErrorPage_Controller {
             Config::inst()->get('UniversalErrorPage', $this->ErrorCode),
             $path . "error-{$this->ErrorCode}-$lang.html",
             $path . "error-{$this->ErrorCode}-$lang.php",
+            $path . "error-$lang.html",
+            $path . "error-$lang.php",
             $path . 'error.html',
             $path . 'error.php'
         );
