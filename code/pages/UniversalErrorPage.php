@@ -39,8 +39,13 @@ class UniversalErrorPage_Controller extends ErrorPage_Controller {
         $lang = i18n::get_locale();
         $path = Config::inst()->get('UniversalErrorPage', 'DefaultPath');
         if (!$path) $path = $this->defaultErrorPagePath;
+        
+        $forCode = Config::inst()->get('UniversalErrorPage', $this->ErrorCode);
+        $localeForCode = preg_replace('/\.([a-z]+)$/i', '-' . $lang . '.$1', $forCode);
+
         $errorPages = array(
-            Config::inst()->get('UniversalErrorPage', $this->ErrorCode),
+            $localeForCode,
+            $forCode,
             $path . "error-{$this->ErrorCode}-$lang.html",
             $path . "error-{$this->ErrorCode}-$lang.php",
             $path . "error-$lang.html",
